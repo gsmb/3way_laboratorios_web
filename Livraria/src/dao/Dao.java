@@ -9,7 +9,7 @@ public interface Dao {
 	public Livro criar(Livro modelo);
 	public Livro recuperar(Long id);
 	public Livro alterar(Livro modelo);
-	public Livro deletar()
+	public Livro deletar();
 	
 	
 	
