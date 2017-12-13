@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.naming.spi.DirStateFactory.Result;
 
 import data.FabricaConexao;
 import model.Livro;
@@ -17,7 +16,7 @@ public class LivroDao {
 
 	Logger LOG = Logger.getGlobal();
 	
-	private static final String OBTER_POR_ID_SQL = "SELECT AUTOR, TITULO, COD_LIVRO, IMAGEM, PRECO, DESCRICAO FROM ESTOQUE WHERE COD_LIVRO =?";
+	private static final String OBTER_POR_ID_SQL = "SELECT  AUTOR, TITULO, COD_LIVRO, IMAGEM, PRECO, DESCRICAO FROM ESTOQUE WHERE COD_LIVRO =?;";
 	
 	private static final String CONSULTA_SQL ="SELECT COD_LIVROTITULO, COD_LIVRO, IMAGEM, PRECO, DESCRICAO FROM ESTOQUE WHERE TITULO LIKE ?";
 
@@ -35,7 +34,7 @@ public class LivroDao {
 				livro.setImagem(resultado.getString("IMAGEM"));
 				livro.setPreco(resultado.getDouble("PRECO"));
 				livro.setTitulo(resultado.getString("TITULO"));
-				livro.setDescricao(resultado.getNString("DESCRICAO"));
+				livro.setDescricao(resultado.getString("DESCRICAO"));
 				
 				resultado.close();
 			}
@@ -48,22 +47,31 @@ public class LivroDao {
 		
 	}
 	public List<Livro> consultar(String titulo){
-		java.util.List<Livro> lista = new ArrayList<Livro>();
-		try (Connection conexao = FabricaConexao.getConnection(); PreparedStatement consulta = conexao.prepareStatement(CONSULTAR_SQL);){
+		java.util.List<Livro> livros = new ArrayList<Livro>();
+		try (Connection conexao = FabricaConexao.getConnection(); 
+				PreparedStatement consulta = conexao.prepareStatement(CONSULTAR_SQL);){
 			consulta.setString(1, "%" + titulo.toUpperCase()+"%");
 			ResultSet resultado = consulta.executeQuery();
 			
 			while (resultado.next()){
 				Livro livro = new Livro();
-				
-				
-				lista.add(livro);
+				livro.setAutor(resultado.getString("AUTOR"));
+				livro.setCodigo(resultado.getInt("CODIGO"));
+				livro.setImagem(resultado.getString("IMAGEM"));
+				livro.setPreco(resultado.getDouble("PRECO"));
+				livro.setTitulo(resultado.getString("TITULO"));
+				livro.setDescricao(resultado.getString("DESCRICAO"));
+				livros.add(livro);
 			}
-			resultado.close();
-		} catch (SQLException e) {
+			
+			resultado.close();				
+				
+			}
+			
+		catch (SQLException e) {
 			LOG.severe(e.toString());
 		}
-		return lista;
+		return livros;
 	}
 	
 	
