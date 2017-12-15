@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 
 import data.FabricaConexao;
-import model.Livro;
+import model.ModelType;
 
 public class LivroDao {
 
@@ -22,13 +22,13 @@ public class LivroDao {
 
 	private static final String CONSULTAR_SQL = null;
 	
-	public Livro consultar(int codigo){
-		Livro livro = null;
+	public ModelType consultar(int codigo){
+		ModelType livro = null;
 		try (Connection conexao = FabricaConexao.getConnection();PreparedStatement consulta = conexao.prepareStatement(OBTER_POR_ID_SQL);){
 			consulta.setInt(1, codigo);
 			ResultSet resultado = consulta.executeQuery();
 			if(resultado.next()){
-				livro = new Livro();
+				livro = new ModelType();
 				livro.setAutor(resultado.getString("AUTOR"));
 				livro.setCodigo(resultado.getInt("COD_LIVRO"));
 				livro.setImagem(resultado.getString("IMAGEM"));
@@ -46,15 +46,15 @@ public class LivroDao {
 		return livro;
 		
 	}
-	public List<Livro> consultar(String titulo){
-		java.util.List<Livro> livros = new ArrayList<Livro>();
+	public List<ModelType> consultar(String titulo){
+		java.util.List<ModelType> livros = new ArrayList<ModelType>();
 		try (Connection conexao = FabricaConexao.getConnection(); 
 				PreparedStatement consulta = conexao.prepareStatement(CONSULTAR_SQL);){
 			consulta.setString(1, "%" + titulo.toUpperCase()+"%");
 			ResultSet resultado = consulta.executeQuery();
 			
 			while (resultado.next()){
-				Livro livro = new Livro();
+				ModelType livro = new ModelType();
 				livro.setAutor(resultado.getString("AUTOR"));
 				livro.setCodigo(resultado.getInt("CODIGO"));
 				livro.setImagem(resultado.getString("IMAGEM"));

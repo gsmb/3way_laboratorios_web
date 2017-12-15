@@ -1,6 +1,6 @@
 package model;
 
-public class Livro {
+public class ModelType {
 
 	private int codigo;
 	private String titulo;
@@ -71,7 +71,7 @@ public class Livro {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Livro other = (Livro) obj;
+		ModelType other = (ModelType) obj;
 		if (autor == null) {
 			if (other.autor != null)
 				return false;

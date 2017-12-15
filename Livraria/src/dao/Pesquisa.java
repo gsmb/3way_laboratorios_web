@@ -3,7 +3,7 @@ package dao;
 import java.util.Iterator;
 import java.util.List;
 
-import model.Livro;
+import model.ModelType;
 
 public class Pesquisa {
 
@@ -13,8 +13,8 @@ public class Pesquisa {
 		
 		LivroDao dao = new LivroDao();
 		
-		List<Livro> livros = dao.consultar(titulo);
-		for (Livro livro : livros) {
+		List<ModelType> livros = dao.consultar(titulo);
+		for (ModelType livro : livros) {
 			System.out.println("Desc.: "+livro.getDescricao() + "Preço: "+livro.getPreco()
 					);
 		}	

@@ -1,15 +1,15 @@
 package dao;
 
-import model.Livro;
+import model.ModelType;
 
 public interface Dao {
 
-	// CRUD: CRIAR, RECUPERAR, UPDATE, DELETE
+	// CRUD: CREAT, REMOVE, UPDATE, DELETE
 	
-	public Livro criar(Livro modelo);
-	public Livro recuperar(Long id);
-	public Livro alterar(Livro modelo);
-	public Livro deletar();
+	 ModelType criar(ModelType modelo);
+	 ModelType recuperar(Long id);
+	 ModelType alterar(ModelType modelo);
+	 ModelType deletar();
 	
 	
 	
