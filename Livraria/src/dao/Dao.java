@@ -9,7 +9,7 @@ public interface Dao {
 	 ModelType criar(ModelType modelo);
 	 ModelType recuperar(Long id);
 	 ModelType alterar(ModelType modelo);
-	 ModelType deletar();
+	 ModelType deletar(ModelType modelo);
 	
 	
 	
