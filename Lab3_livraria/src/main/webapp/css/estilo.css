@@ -89,3 +89,58 @@ social a {
 .social a[href*="plus.google.com"] {
 	background-image: url(.../imagens/googleplus.png)
 }
+
+.busca, .menu-departamentos {
+	background-color: #dcdcdc;
+	font-weight: bold;
+	text-transform: uppercase;
+	float: left;
+	margin-right: 10px;
+	width: 230 px;
+}
+
+.busca h2, .busca form, .menu-departamentos h2 {
+	margin: 10px;
+}
+
+.menu-departamentos li {
+	background-color: white;
+	margin-bottom: 1px;
+	padding: 5px 10px;
+}
+
+.menu-departamentos a {
+	color: #333;
+	text-decoration: none;
+}
+
+.busca input {
+	vertical-align: middle;
+}
+
+.busca input[type=Search] {
+	width: 170px;
+}
+
+.menu-departamentos {
+	clear: left;
+	margin-top: 10px;
+	padding-bottom: 10px;
+}
+
+.menu-departamentos li ul {
+	display: none;
+}
+
+.menu-departamentos li:HOVER ul {
+	display: block;
+}
+
+.menu-departamentos ul ul li {
+	background-color: #dcdcdc;
+}
+
+.menu-departamentos li li a:BEFORE {
+	content: '\261E';
+	padding-right: 3 px;
+}
