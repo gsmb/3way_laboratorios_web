@@ -1,23 +1,23 @@
 package model;
 
-public class pojoModel implements java.io.Serializable {
+public class Livro implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private int codigo;
+	private Long id;
 	private String titulo;
 	private String autor;
 	private String descricao;
 	private double preco;
 	private String imagem;
 
-	public pojoModel() {
+	public Livro() {
 
 	}
 
-	public pojoModel(int codigo, String titulo, String autor, String descricao,
+	public Livro(Long codigo, String titulo, String autor, String descricao,
 			double preco, String imagem) {
-		this.codigo = codigo;
+		this.id = codigo;
 		this.titulo = titulo;
 		this.autor = autor;
 		this.descricao = descricao;
@@ -25,12 +25,14 @@ public class pojoModel implements java.io.Serializable {
 		this.imagem = imagem;
 	}
 
-	public int getCodigo() {
-		return codigo;
+	
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setCodigo(int codigo) {
-		this.codigo = codigo;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getTitulo() {
@@ -78,25 +80,13 @@ public class pojoModel implements java.io.Serializable {
 	}
 
 	@Override
-	public String toString() {
-		return "pojoModel [codigo=" + codigo + ", titulo=" + titulo
-				+ ", autor=" + autor + ", descricao=" + descricao + ", preco="
-				+ preco + ", imagem=" + imagem + ", getCodigo()=" + getCodigo()
-				+ ", getTitulo()=" + getTitulo() + ", getAutor()=" + getAutor()
-				+ ", getDescricao()=" + getDescricao() + ", getPreco()="
-				+ getPreco() + ", getImagem()=" + getImagem() + ", getClass()="
-				+ getClass() + ", hashCode()=" + hashCode() + ", toString()="
-				+ super.toString() + "]";
-	}
-
-	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + codigo;
 		result = prime * result
 				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((imagem == null) ? 0 : imagem.hashCode());
 		long temp;
 		temp = Double.doubleToLongBits(preco);
@@ -113,18 +103,21 @@ public class pojoModel implements java.io.Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		pojoModel other = (pojoModel) obj;
+		Livro other = (Livro) obj;
 		if (autor == null) {
 			if (other.autor != null)
 				return false;
 		} else if (!autor.equals(other.autor))
 			return false;
-		if (codigo != other.codigo)
-			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
 		} else if (!descricao.equals(other.descricao))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (imagem == null) {
 			if (other.imagem != null)
@@ -142,5 +135,18 @@ public class pojoModel implements java.io.Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Livro [id=" + id + ", titulo=" + titulo + ", autor=" + autor
+				+ ", descricao=" + descricao + ", preco=" + preco + ", imagem="
+				+ imagem + ", getId()=" + getId() + ", getTitulo()="
+				+ getTitulo() + ", getAutor()=" + getAutor()
+				+ ", getDescricao()=" + getDescricao() + ", getPreco()="
+				+ getPreco() + ", getImagem()=" + getImagem() + ", hashCode()="
+				+ hashCode() + ", getClass()=" + getClass() + ", toString()="
+				+ super.toString() + "]";
+	}
+
+	
 	
 }

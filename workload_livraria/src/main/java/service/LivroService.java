@@ -1,6 +1,6 @@
 package service;
 
-public class livroService {
+public class LivroService {
 
 	
 	public String listarLivros(){
