@@ -5,7 +5,7 @@ public class livroService {
 	
 	public String listarLivros(){
 		
-		return "";
+		return "livros";
 	}
 	
 	public void salvarLivro(){
