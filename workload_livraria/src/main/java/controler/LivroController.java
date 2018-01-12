@@ -28,5 +28,18 @@ public class LivroController extends HttpServlet {
 		super.doPost(req, resp);
 	}
 
+	public String listarLivros(){
+		
+		return "livros";
+	}
 	
+	public void mostrarPaginaCadastroLivro(){
+		
+	}
+	
+	public void cadastroLivro(){
+		
+		
+	}
 }
+
