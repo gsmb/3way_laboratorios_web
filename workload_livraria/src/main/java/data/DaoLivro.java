@@ -21,8 +21,8 @@ public  class DaoLivro implements Dao<Livro> {
 
 	public Livro excluir(int id) {
 		
-		return "";
+		return null;
 	}
-
+// implementar os metodos
 	
 }
