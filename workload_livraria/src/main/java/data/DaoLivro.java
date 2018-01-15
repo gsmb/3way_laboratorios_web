@@ -23,6 +23,6 @@ public  class DaoLivro implements Dao<Livro> {
 		
 		return null;
 	}
-// implementar os metodos
+// implementar os metodos....
 	
 }
