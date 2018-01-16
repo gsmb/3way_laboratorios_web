@@ -1,6 +1,8 @@
-package data;
+package data.dao;
 
-import model.Livro;
+import java.util.List;
+
+import data.model.Livro;
 
 public  class LivroDao implements Dao<Livro>, ProjecoesLivro {
 
@@ -41,6 +43,21 @@ public  class LivroDao implements Dao<Livro>, ProjecoesLivro {
 	}
 
 	public Livro delete(Livro modelo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Livro> livrosPorChaveValor(String chave, String valor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Livro> livrosPorCodigo(String codigo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Livro> livrosPorPreco(double preco) {
 		// TODO Auto-generated method stub
 		return null;
 	}

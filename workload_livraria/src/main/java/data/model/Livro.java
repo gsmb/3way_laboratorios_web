@@ -1,4 +1,4 @@
-package model;
+package data.model;
 
 public class Livro implements java.io.Serializable {
 
