@@ -2,8 +2,11 @@ package data;
 
 public interface Dao<ModelType> {
 
-	ModelType criar (ModelType modelo);
-	ModelType recuperar(int id  );
-	ModelType alterar(ModelType modelo);
-	ModelType excluir(int id);
+	ModelType create(ModelType modelo);
+
+	ModelType recuperar(long id);
+
+	ModelType update(long id, String chave, String valor);
+
+	ModelType delete(ModelType modelo);
 }
