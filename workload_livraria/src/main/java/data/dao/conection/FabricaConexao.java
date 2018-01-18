@@ -6,12 +6,14 @@ import java.sql.SQLException;
 
 public class FabricaConexao {
 
-	private static final String NOME_BANCO = "livraria";
+	public static String url = "jdbc:postgresql://localhost:5432/livraria";
+	public static String usuario = "postgres";
+	public static String senha = "12345";
 
 	public static Connection getConnection() {
 		try {
 			Class.forName("org.postgresql.Driver");
-			return DriverManager.getConnection("jdbc:postgresql://localhost:5432/" + NOME_BANCO,"postgres", "postgres");
+			return DriverManager.getConnection(url, usuario, senha);
 		} catch (ClassNotFoundException e) {
 			System.out.println("Erro do driver de banco");
 			e.printStackTrace();
@@ -22,5 +24,5 @@ public class FabricaConexao {
 
 		return null;
 	}
-	
+
 }
