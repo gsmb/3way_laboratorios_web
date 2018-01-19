@@ -1,13 +1,27 @@
 package data.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.List;
 
+import data.dao.conection.FabricaConexao;
+import data.dao.exception.DAOException;
 import data.model.Livro;
 
 public  class LivroDao implements Dao<Livro>, ProjecoesLivro {
+	
+	public static final String OBTER_LIVRO_COD = "" +"Select * from estoque e where e.cod_livro = ?;";
+	public static final String OBTER_LIVROS_POR_CHAVE_VALOR = "Select * from estoque e where e.? like ?;";
+	
+	
 
-	public Livro criar(Livro modelo) {
-		
+	public Livro criar(Livro modelo) throws DAOException {
+		try (Connection con = FabricaConexao.getConnection();){
+			PreparedStatement ps = con.prepareStatement(Livro.CREATE_LIVRO);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return null;
 	}
 

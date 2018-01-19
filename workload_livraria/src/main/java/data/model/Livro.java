@@ -5,18 +5,19 @@ public class Livro implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Long id;
+	private String codigo;
 	private String titulo;
 	private String autor;
 	private String descricao;
 	private double preco;
-	private String imagem;
+	private byte[] imagem;
 
 	public Livro() {
 
 	}
 
 	public Livro(Long codigo, String titulo, String autor, String descricao,
-			double preco, String imagem) {
+			double preco, byte[] imagem) {
 		this.id = codigo;
 		this.titulo = titulo;
 		this.autor = autor;
@@ -67,11 +68,11 @@ public class Livro implements java.io.Serializable {
 		this.preco = preco;
 	}
 
-	public String getImagem() {
+	public byte[] getImagem() {
 		return imagem;
 	}
 
-	public void setImagem(String imagem) {
+	public void setImagem(byte[] imagem) {
 		this.imagem = imagem;
 	}
 
@@ -145,6 +146,14 @@ public class Livro implements java.io.Serializable {
 				+ getPreco() + ", getImagem()=" + getImagem() + ", hashCode()="
 				+ hashCode() + ", getClass()=" + getClass() + ", toString()="
 				+ super.toString() + "]";
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	
