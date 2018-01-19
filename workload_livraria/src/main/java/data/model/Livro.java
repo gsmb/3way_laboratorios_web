@@ -35,6 +35,7 @@ public class Livro implements java.io.Serializable {
 
 	public Livro(Long id, String codigo, String titulo, String autor, String descricao, double preco, byte[] imagem){
 		this.id = id;
+		this.codigo= codigo;
 		this.titulo = titulo;
 		this.autor = autor;
 		this.descricao = descricao;
