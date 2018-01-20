@@ -1,5 +1,7 @@
 package data.model;
 
+import java.util.Arrays;
+
 public class Livro implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -11,14 +13,30 @@ public class Livro implements java.io.Serializable {
 	private String descricao;
 	private double preco;
 	private byte[] imagem;
-
+		
+	
+	public static final String NOME_COL_ID_LIVRO = "id";
+	public static final String NOME_COL_AUTOR_LIVRO = "autor"; 
+	public static final String NOME_COL_COD_LIVRO = "cod_livro";
+	public static final String NOME_COL_TITULO_LIVRO = "titulo";
+	public static final String NOME_COL_DESC_LIVRO = "descricao";
+	public static final String NOME_COL_PRECO_LIVRO = "preco";
+	public static final String NOME_COL_IMAGEM_LIVRO = "imagem";
+	
+	
+	public static final String DELETE_LIVRO = "DELETE from estoque e where e.id = ?;";
+	public static final String CREATE_LIVRO = "INSERT into estoque (cod_livro, titulo, descricao, autor, preco, imagem) values(?, ?, ?, ?, ?, ?);";
+	public static final String UPDATE_LIVRO = "UPDATE estoque e set e.? = ?;";
+	
+	
 	public Livro() {
-
+		super();
 	}
 
-	public Livro(Long codigo, String titulo, String autor, String descricao,
+	public Livro(Long id, String codigo, String titulo, String autor, String descricao,
 			double preco, byte[] imagem) {
-		this.id = codigo;
+		this.id = id;
+		this.codigo= codigo;
 		this.titulo = titulo;
 		this.autor = autor;
 		this.descricao = descricao;
@@ -34,6 +52,14 @@ public class Livro implements java.io.Serializable {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
 	}
 
 	public String getTitulo() {
@@ -75,20 +101,16 @@ public class Livro implements java.io.Serializable {
 	public void setImagem(byte[] imagem) {
 		this.imagem = imagem;
 	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result
-				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		result = prime * result	+ ((descricao == null) ? 0 : descricao.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((imagem == null) ? 0 : imagem.hashCode());
+		result = prime * result + Arrays.hashCode(imagem);
 		long temp;
 		temp = Double.doubleToLongBits(preco);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
@@ -110,6 +132,11 @@ public class Livro implements java.io.Serializable {
 				return false;
 		} else if (!autor.equals(other.autor))
 			return false;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
 		if (descricao == null) {
 			if (other.descricao != null)
 				return false;
@@ -120,10 +147,7 @@ public class Livro implements java.io.Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (imagem == null) {
-			if (other.imagem != null)
-				return false;
-		} else if (!imagem.equals(other.imagem))
+		if (!Arrays.equals(imagem, other.imagem))
 			return false;
 		if (Double.doubleToLongBits(preco) != Double
 				.doubleToLongBits(other.preco))
@@ -138,24 +162,14 @@ public class Livro implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Livro [id=" + id + ", titulo=" + titulo + ", autor=" + autor
-				+ ", descricao=" + descricao + ", preco=" + preco + ", imagem="
-				+ imagem + ", getId()=" + getId() + ", getTitulo()="
+		return "Livro [id=" + id + ", codigo=" + codigo + ", titulo=" + titulo
+				+ ", autor=" + autor + ", descricao=" + descricao + ", preco="
+				+ preco + ", imagem=" + Arrays.toString(imagem) + ", getId()="
+				+ getId() + ", getCodigo()=" + getCodigo() + ", getTitulo()="
 				+ getTitulo() + ", getAutor()=" + getAutor()
 				+ ", getDescricao()=" + getDescricao() + ", getPreco()="
-				+ getPreco() + ", getImagem()=" + getImagem() + ", hashCode()="
-				+ hashCode() + ", getClass()=" + getClass() + ", toString()="
-				+ super.toString() + "]";
-	}
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-
-	
-	
+				+ getPreco() + ", getImagem()=" + Arrays.toString(getImagem())
+				+ ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
+				+ ", toString()=" + super.toString() + "]";
+	}	
 }

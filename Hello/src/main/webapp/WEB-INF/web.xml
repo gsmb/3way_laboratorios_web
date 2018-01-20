@@ -9,13 +9,15 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-  <servlet-name>Hello</servlet-name>
-  <servlet-class>teste.SaudacaoServlet</servlet-class>
-  </servlet>
   
+  <servlet>
+    <description></description>
+    <display-name>ServletToJsp</display-name>
+    <servlet-name>ServletToJsp</servlet-name>
+    <servlet-class>teste.ServletToJsp</servlet-class>
+  </servlet>
   <servlet-mapping>
-  <servlet-name>Hello</servlet-name>
-  <url-pattern>/Romero</url-pattern>
+    <servlet-name>ServletToJsp</servlet-name>
+    <url-pattern>/ServletToJsp</url-pattern>
   </servlet-mapping>
 </web-app>
