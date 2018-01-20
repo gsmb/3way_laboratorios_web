@@ -13,7 +13,7 @@ public class Livro implements java.io.Serializable {
 	private String descricao;
 	private double preco;
 	private byte[] imagem;
-	
+		
 	
 	public static final String NOME_COL_ID_LIVRO = "id";
 	public static final String NOME_COL_AUTOR_LIVRO = "autor"; 
@@ -33,7 +33,8 @@ public class Livro implements java.io.Serializable {
 		super();
 	}
 
-	public Livro(Long id, String codigo, String titulo, String autor, String descricao, double preco, byte[] imagem){
+	public Livro(Long id, String codigo, String titulo, String autor, String descricao,
+			double preco, byte[] imagem) {
 		this.id = id;
 		this.codigo= codigo;
 		this.titulo = titulo;
@@ -42,6 +43,8 @@ public class Livro implements java.io.Serializable {
 		this.preco = preco;
 		this.imagem = imagem;
 	}
+
+	
 
 	public Long getId() {
 		return id;
@@ -98,7 +101,7 @@ public class Livro implements java.io.Serializable {
 	public void setImagem(byte[] imagem) {
 		this.imagem = imagem;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -168,11 +171,5 @@ public class Livro implements java.io.Serializable {
 				+ getPreco() + ", getImagem()=" + Arrays.toString(getImagem())
 				+ ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
 				+ ", toString()=" + super.toString() + "]";
-	}
-
-	
-	
-	
-
-	
+	}	
 }
