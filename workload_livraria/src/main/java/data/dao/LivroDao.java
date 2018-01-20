@@ -184,4 +184,9 @@ public  class LivroDao implements Dao<Livro>, ProjecoesLivro {
 				
 		return livro;
 	}
+	@Override
+	public Livro recuperar(long id) throws DAOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
