@@ -6,9 +6,9 @@ public interface Dao<ModelType> {
 
 	ModelType create(ModelType modelo) throws DAOException;
 
-	ModelType recuperar(long id) throws DAOException;
+	ModelType recuperar(Long id) throws DAOException;
 
-	ModelType update(long id, String chave, String valor) throws DAOException;
+	ModelType update(Long id, String chave, String valor) throws DAOException;
 
 	ModelType delete(ModelType modelo) throws DAOException;
 }
