@@ -49,7 +49,7 @@ public class LivroController extends HttpServlet {
 			req.setAttribute("livros", livros);
 
 			RequestDispatcher rd = req
-					.getRequestDispatcher("/pages/lista_livros.jsp");
+					.getRequestDispatcher("/pages/lista_livros.jsf");
 			rd.forward(req, resp);
 		} catch (ServiceException e) {
 			e.printStackTrace();
