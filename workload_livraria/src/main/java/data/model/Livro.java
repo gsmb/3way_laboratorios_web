@@ -6,7 +6,7 @@ public class Livro implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	private Long id;
+	private long id;
 	private String codigo;
 	private String titulo;
 	private String autor;
@@ -33,8 +33,9 @@ public class Livro implements java.io.Serializable {
 		super();
 	}
 
-	public Livro(Long id, String codigo, String titulo, String autor, String descricao,
+	public Livro(long id, String codigo, String titulo, String autor, String descricao,
 			double preco, byte[] imagem) {
+		super();
 		this.id = id;
 		this.codigo= codigo;
 		this.titulo = titulo;
@@ -46,11 +47,11 @@ public class Livro implements java.io.Serializable {
 
 	
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -102,14 +103,16 @@ public class Livro implements java.io.Serializable {
 		this.imagem = imagem;
 	}
 	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result	+ ((descricao == null) ? 0 : descricao.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result
+				+ ((descricao == null) ? 0 : descricao.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + Arrays.hashCode(imagem);
 		long temp;
 		temp = Double.doubleToLongBits(preco);
@@ -142,10 +145,7 @@ public class Livro implements java.io.Serializable {
 				return false;
 		} else if (!descricao.equals(other.descricao))
 			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (id != other.id)
 			return false;
 		if (!Arrays.equals(imagem, other.imagem))
 			return false;
@@ -164,12 +164,8 @@ public class Livro implements java.io.Serializable {
 	public String toString() {
 		return "Livro [id=" + id + ", codigo=" + codigo + ", titulo=" + titulo
 				+ ", autor=" + autor + ", descricao=" + descricao + ", preco="
-				+ preco + ", imagem=" + Arrays.toString(imagem) + ", getId()="
-				+ getId() + ", getCodigo()=" + getCodigo() + ", getTitulo()="
-				+ getTitulo() + ", getAutor()=" + getAutor()
-				+ ", getDescricao()=" + getDescricao() + ", getPreco()="
-				+ getPreco() + ", getImagem()=" + Arrays.toString(getImagem())
-				+ ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
-				+ ", toString()=" + super.toString() + "]";
-	}	
+				+ preco + ", imagem=" + Arrays.toString(imagem) + "]";
+	}
+
+	
 }
