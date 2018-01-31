@@ -7,16 +7,22 @@
 </head>
 <body>
 	<header class="container">
-		<img src="imagens/livro.png" alt="Arsenal Livraria"
-			id="logo-livraria">
+		<img src="imagens/livro.png" alt="Arsenal Livraria" id="logo-livraria">
 		<nav class="menu-opcoes">
-		<ul>
-		<li><a href="#">Home</a>
-		<li><a href="#">Carrinho</a>
-		<li><a href="#">Cadastro</a>
-		<li><a href="#">Login</a>
-		</ul>
-		
+			<ul>
+				<p>Projeto Livraria - JSP</p>
+				<p>Este projeto foi criado para treinar os conhecimentos com o
+					JEE 5</p>
+				<br> O projeto contém este servlet:
+				<ul>
+					<li><a href="livro?cmd=lista_livros">Listagem de livros</a>
+				</ul>
+				<br> O Servlet utiliza httpServlet padrao do java 5. Foi
+				implementado o método get com o uso do parametro 'cmd' para dizer
+				qual o tipo de ação que o usuário quer que o servlet execute.
+				Portanto, ele está seguindo o modelo MVC, sendo que ele é o
+				controlador que utiliza uma classe de serviço que gera um modelo e
+				retorna para view jsp mostrar.
 		</nav>
 
 

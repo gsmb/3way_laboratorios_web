@@ -45,7 +45,7 @@ public class LivroDao implements Dao<Livro>, ProjecoesLivro {
 	}
 
 	@Override
-	public Livro recuperar(Long id) throws DAOException {
+	public Livro recuperar(long id) throws DAOException {
 		try (Connection con = FabricaConexao.getConnection();) {
 			PreparedStatement ps = con.prepareStatement(OBTER_LIVRO_COD);
 			ps.setInt(1, Integer.parseInt(String.valueOf(id)));
@@ -65,7 +65,7 @@ public class LivroDao implements Dao<Livro>, ProjecoesLivro {
 	}
 
 	@Override
-	public Livro update(Long id, String chave, String valor)
+	public Livro update(long id, String chave, String valor)
 			throws DAOException {
 
 		try (Connection con = FabricaConexao.getConnection();) {

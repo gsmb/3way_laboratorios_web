@@ -48,13 +48,11 @@ public class LivroController extends HttpServlet {
 			List<Livro> livros = livroService.listLivros();
 			req.setAttribute("livros", livros);
 
-			RequestDispatcher rd = req
-					.getRequestDispatcher("/pages/lista_livros.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/pages/lista_livros.jsp");
 			rd.forward(req, resp);
 		} catch (ServiceException e) {
 			e.printStackTrace();
-			printMensagemErro(
-					"Erro ao tentar buscar livros: " + e.getMessage(), resp);
+			printMensagemErro("Erro ao tentar buscar livros: " + e.getMessage(), resp);
 		} catch (ServletException e) {
 			e.printStackTrace();
 			printMensagemErro("Erro de servlet", resp);
