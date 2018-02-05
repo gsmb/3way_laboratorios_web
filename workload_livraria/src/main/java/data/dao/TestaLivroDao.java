@@ -11,7 +11,7 @@ public class TestaLivroDao {
 	
 		LivroDao livroDao = new LivroDao();
 		
-		List<Livro> livros = livroDao.listeLivro();
+		List<Livro> livros = livroDao.listeLivros();
 		Iterator<Livro> iterator = livros.iterator();
 		while (iterator.hasNext()) {
 			Livro livro = (Livro) iterator.next();

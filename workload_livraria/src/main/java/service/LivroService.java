@@ -12,6 +12,6 @@ public class LivroService {
 	public List<Livro> listeLivro(){
 		livroDao = new LivroDao();
 		
-		return livroDao.listeLivro();
+		return livroDao.listeLivros();
 	}
 }

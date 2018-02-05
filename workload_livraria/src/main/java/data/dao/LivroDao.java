@@ -1,4 +1,4 @@
-package data.dao;
+ package data.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ import data.model.Livro;
 public class LivroDao implements Dao {
 
 	@Override
-	public List<Livro> listeLivro() {
+	public List<Livro> listeLivros() {
 		ArrayList<Livro> livros = new ArrayList<>();
 		
 		Connection connection = FabricaConexao.getConnection();
