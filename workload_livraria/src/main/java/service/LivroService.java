@@ -9,7 +9,7 @@ public class LivroService {
 
 	private LivroDao livroDao;
 	
-	public List<Livro> listeLivro(){
+	public List<Livro> listarLivros(){
 		livroDao = new LivroDao();
 		
 		return livroDao.listeLivros();
